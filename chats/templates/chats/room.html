@@ -1,28 +1,34 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <title>Chat Room</title>
-  </head>
+{% extends 'chats/base.html' %}
+{% load static %}
+{% block title %}
+    Room || {{room_name}}
+{% endblock %}
+{% block content %}
+  <header>
+    <div class="navbar">
+      <a href="dashboard.html"><img src="" alt="Logo" /></a>
+      <ul class="nav-links">
+        <a href="{% url 'index' %}">Dashboard</a>
+        <!-- <a href="">Guest</a> -->
+        <a href="{% url 'logout' %}">Logout</a>
+      </ul>
+    </div>
+  </header>
   <body>
-    <div class="container">
-      <div class="row d-flex justify-content-center">
-        <div class="col-6">
-          <form>
+    <section>
+     <div class="dash-card">
+       <form>
             <div class="form-group">
-              <label for="exampleFormControlTextarea" class="h4 pt-5"><h5>Room Code: <mark>{{room_name}}</mark></h5> </label>
-              <textarea class="form-control" id="chat-text" rows="10" disabled></textarea><br>
+              <label for="exampleFormControlTextarea" class="h4 pt-5"><h5>Room Code: <mark>{{room_name}}</mark></h5></label>
+              <textarea class="form-control" id="chat-text" rows="20" cols="35" disabled></textarea><br>
             </div>
             <div class="form-group">
               <input type="text" id="input" class="form-control"><br>
             </div>
-            <input class="btn btn-primary btn-lg btn-block" id="submit" type="button" value="Send">
+            <input class="btn-links" id="submit" type="button" value="Send">
           </form>
-        </div>
-      </div>
-    </div>
+     </div>
+  </section>
 
 
 
@@ -65,4 +71,4 @@
       }
     </script>
   </body>
-</html>
+{% endblock %}
