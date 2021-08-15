@@ -9,10 +9,9 @@
 		href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
 		integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
 		crossorigin="anonymous"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
 	<title>{% block title %}{% endblock %}</title>
-</head>
-<body>
-	{% block content %}
-	{% endblock %}
-</body>
+</head>	
+{% block content %}
+{% endblock %}
 </html>

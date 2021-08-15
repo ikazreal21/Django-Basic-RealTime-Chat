@@ -1,0 +1,216 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Poppins", "sans-serif";
+}
+
+html {
+  background-color: #5e6472;
+  height: relative;
+}
+
+body {
+  width: 100%;
+  margin: auto;
+}
+
+header {
+  width: 90%;
+  margin: auto;
+}
+
+section {
+  width: 90%;
+  margin: auto;
+}
+
+.navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 2rem;
+}
+
+.nav-links a {
+  color: #fef9ef;
+  text-decoration: none;
+  text-align: center;
+  padding-left: 1rem;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.nav-links a:hover {
+  color: #ffcb77;
+}
+
+.btn-links {
+  color: #5e6472;
+  background-color: #17c3b2;
+  margin: 3rem 0 3rem 0;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 0.5rem;
+  border-radius: 5px;
+  width: 124px;
+  text-decoration: none;
+}
+
+.btn-links:hover {
+  opacity: 0.4;
+  color: black;
+}
+
+.message {
+  border-radius: 3px;
+  background-color: #fef9ef;
+  width: 200px;
+  margin: auto;
+  margin-bottom: 1rem;
+}
+
+.card-login {
+  height: relative;
+  width: 450px;
+  margin: auto;
+  border-radius: 12px;
+  background: #ffcb77;
+  padding: 1rem;
+  text-align: center;
+}
+
+.card-login h1 {
+  font-weight: bold;
+  font-size: 30px;
+  color: #227c9d;
+  text-align: center;
+}
+
+.card-login p {
+  color: black;
+}
+
+.card-login a {
+  color: #17c3b2;
+  text-decoration: underline;
+}
+
+.card-login .button {
+  color: #5e6472;
+  background-color: #fe6d73;
+  margin: 52px 0 3rem 0;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 0.5rem;
+  border-radius: 5px;
+  width: 124px;
+}
+
+.login-input {
+  width: 80%;
+  margin: auto;
+}
+
+.register-input {
+  width: 80%;
+  margin: auto;
+}
+
+.username input[type="text"],
+.password input[type="password"],
+.email input[type="email"],
+.fullname input[type="text"] {
+  height: 35px;
+  border-radius: 5px;
+  border: 0;
+  outline: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 5px;
+  background: #5e6472;
+}
+
+.username label,
+.password label,
+.email label,
+.fullname label {
+  color: #227c9d;
+  padding: 1rem 0 1rem 0;
+  text-align: left;
+}
+
+.username,
+.password,
+.email,
+.fullname {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.card-login .button-register {
+  color: #5e6472;
+  background-color: #fe6d73;
+  margin: 52px 1rem 4rem 1rem;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 0.5rem;
+  border-radius: 5px;
+  width: 124px;
+}
+
+.card-wrapper-register {
+  margin: 1rem 0 1rem 0;
+}
+
+.card-wrapper {
+  margin-top: 6rem;
+}
+
+.dash-card {
+  height: relative;
+  width: 450px;
+  margin: auto;
+  margin-top: 4rem;
+  border-radius: 12px;
+  background: #ffcb77;
+  padding: 1rem;
+  text-align: center;
+}
+
+.dash-card h3 {
+  margin-top: 1rem;
+  font-weight: bold;
+  font-size: 20px;
+  color: #fef9ef;
+  text-align: center;
+}
+
+.dash-card p {
+  color: black;
+}
+
+.dash-card label {
+  font-size: larger;
+  font-weight: 700;
+  color: #227c9d;
+  padding: 1rem 0 1rem 0;
+  text-align: left;
+}
+/*# sourceMappingURL=index.css.map */
