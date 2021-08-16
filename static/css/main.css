@@ -38,7 +38,7 @@ section {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .nav-links a {
