@@ -1,7 +1,7 @@
 {% extends 'chats/base.html' %}
 {% load static %}
 {% block title %}
-	AnonRoom || Dashboard
+	AnonRoom || Enter Room
 {% endblock %}
 {% block content %}
 	<header>
@@ -9,7 +9,7 @@
 			<a href="{% url 'index' %}"><img src="{% static 'image/new.png' %}" alt="Logo" /></a>
 			<ul class="nav-links">
 				<!-- <a href="">Guest</a> -->
-				<a href="{% url 'enterroom' %}">Enter a Room</a>
+				<a href="{% url 'index' %}">Dashboard</a>
 				<a href="{% url 'saveroom' %}">Save Room</a>
 				<a href="{% url 'logout' %}">Logout</a>
 			</ul>
@@ -20,18 +20,13 @@
 			<div class="dash-card">
 				<form method="post" action="">
 					{% csrf_token %}
-					<label>Generate a Random Room</label>
-					{% if randROOM == None %}
-						<h3></h3>
-					{% else %}
-						<h3>{{randROOM}}</h3>
-					{% endif %}
-					<button type="submit" class="btn-links" name="generate">Generate</button>
+					<label>Go to a Room</label>
+					<div class="username">
+						<label>Room Name</label>
+						<input type="text" name="roomName" required />
+					</div>
+					<button type="submit" class="btn-links">Enter</button>
 				</form>
-				{% if randROOM == None %}
-				{% else %}
-					<a href="{% url 'room' randROOM  %}" class="btn-links">Go to the Room</a>
-				{% endif %}
 			</div>
 		</section>
 	</body>

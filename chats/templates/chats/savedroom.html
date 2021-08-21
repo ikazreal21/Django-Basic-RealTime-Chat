@@ -1,0 +1,22 @@
+{% extends 'chats/base.html' %}
+{% load static %}
+{% block title %}
+	AnonRoom || Saved Room
+{% endblock %}
+{% block content %}
+	<header>
+		<div class="navbar">
+			<a href="{% url 'index' %}"><img src="{% static 'image/new.png' %}" alt="Logo" /></a>
+			<ul class="nav-links">
+				<!-- <a href="">Guest</a> -->
+				<a href="{% url 'index' %}">Dashboard</a>
+				<a href="{% url 'enterroom' %}">Enter a Room</a>
+				<a href="{% url 'logout' %}">Logout</a>
+			</ul>
+		</div>
+	</header>
+	<body>
+		<section>
+		</section>
+	</body>
+{% endblock %}

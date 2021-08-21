@@ -6,6 +6,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
+from django.utils.datastructures import MultiValueDictKeyError
+
 
 import uuid
 
@@ -15,12 +17,29 @@ from .forms import *
 # Create your views here.
 
 
+def Fronpage(request):
+    return render(request, 'chats/frontpage.html')
+
+
 @login_required(login_url='login')
 def Index(request):
     randROOM = None
     if request.method == "POST":
         randROOM = str(uuid.uuid4().hex)
     return render(request, 'chats/dashboard.html', {'randROOM': randROOM})
+
+
+@login_required(login_url='login')
+def EnterRoom(request):
+    if request.method == "POST":
+        roomName = request.POST['roomName']
+        return redirect('chat/{}'.format(roomName))
+    return render(request, 'chats/gotoroom.html')
+
+
+@login_required(login_url='login')
+def SaveRoom(request):
+    return render(request, 'chats/savedroom.html')
 
 
 @login_required(login_url='login')
@@ -65,4 +84,4 @@ def Register(request):
 
 def logoutPage(request):
     logout(request)
-    return redirect('login')
+    return redirect('frontpage')
