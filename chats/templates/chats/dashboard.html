@@ -24,9 +24,20 @@
 					{% else %}
 						<h3>{{randROOM}}</h3>
 					{% endif %}
-					<button type="submit" class="btn-links">Generate</button>
+					<button type="submit" class="btn-links" name="generate">Generate</button>
 				</form>
-				<a href="{% url 'room' randROOM  %}" class="btn-links">Go to the Room</a>
+				{% if randROOM == None %}
+				{% else %}
+					<a href="{% url 'room' randROOM  %}" class="btn-links">Go to the Room</a>
+				{% endif %}
+				<!-- <form method="post" action="">
+						{% csrf_token %}
+						<div class="username">
+								<label>Create Your Own Room</label>
+								<input type="text" name="roomname" required />
+						</div>
+						<button type="submit" class="btn-links" name="OwnName">Create</button>
+				</form> -->
 			</div>
 		</section>
 	</body>
