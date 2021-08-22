@@ -13,6 +13,8 @@ import uuid
 
 from .forms import *
 
+from .models import *
+
 
 # Create your views here.
 
@@ -44,7 +46,13 @@ def SaveRoom(request):
 
 @login_required(login_url='login')
 def Room(request, room_name):
-    return render(request, 'chats/room.html', {'room_name': room_name})
+    username = request.user
+    messages = Message.objects.filter(room=room_name)[0:25]
+    return render(
+        request,
+        'chats/room.html',
+        {'room_name': room_name, 'username': username, 'messages': messages},
+    )
 
 
 def Login(request):
