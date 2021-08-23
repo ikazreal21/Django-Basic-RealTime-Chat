@@ -128,6 +128,9 @@ section {
   margin: auto;
 }
 
+
+textarea,
+input[type="text"],
 .username input[type="text"],
 .password input[type="password"],
 .email input[type="email"],
@@ -142,6 +145,7 @@ section {
   background: #5e6472;
 }
 
+label,
 .username label,
 .password label,
 .email label,

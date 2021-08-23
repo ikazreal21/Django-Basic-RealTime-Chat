@@ -17,6 +17,21 @@
 	</header>
 	<body>
 		<section>
+			<div class="dash-card">
+				<form action="" method="POST">
+					{% csrf_token %}
+					<label>Room Name: </label>
+					{{form.roomname}}
+					<label>Room Code: </label>
+					{{form.rooms}}
+					<label>Description: </label>
+					{{form.description}}
+					<div class="btn-flex">
+						<button type="submit" class="btn-links">Save Room</button>
+						<button type="reset" class="btn-links">Reset</button>
+					</div>
+				</form>
+			</div>
 		</section>
 	</body>
 {% endblock %}

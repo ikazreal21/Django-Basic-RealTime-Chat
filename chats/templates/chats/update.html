@@ -1,0 +1,26 @@
+{% extends 'chats/base.html' %}
+{% load static %}
+{% block title %}
+	AnonRoom || Update
+{% endblock %}
+{% block content %}
+	<body>
+		<section>
+			<div class="dash-card">
+				<form action="" method="POST">
+					{% csrf_token %}
+					<label>Room Name: </label>
+					{{rooms.roomname}}
+					<label>Room Code: </label>
+					{{rooms.rooms}}
+					<label>Description: </label>
+					{{rooms.description}}
+					<div class="btn-flex">
+						<button type="submit" class="btn-links">Save Food</button>
+						<button type="reset" class="btn-links">Reset</button>
+					</div>
+				</form>
+			</div>
+		</section>
+	</body>
+{% endblock %}

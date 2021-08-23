@@ -9,6 +9,8 @@ urlpatterns = [
     path("room", views.EnterRoom, name='enterroom'),
     # Save Room
     path("savedroom", views.SaveRoom, name='saveroom'),
+    path("updateroom/<str:pk>", views.UpdateRoom, name='update'),
+    path("deleteroom/<str:pk>", views.DeleteRoom, name='delete'),
     # AUTH
     path('login', views.Login, name='login'),
     path('register', views.Register, name='register'),

@@ -1,0 +1,22 @@
+{% extends 'chats/base.html' %}
+{% load static %}
+{% block title %}
+	AnonRoom || Delete
+{% endblock %}
+{% block content %}
+	<body>
+		<section>
+			<div class="dash-card">
+				<form action="" method="POST">
+					{% csrf_token %}
+					<h2>{{room.roomname}}</h2>
+					<h3>{{room.rooms}}</h3>
+					<p>{{room.description}}</p>
+					<div class="btn-flex">
+						<button type="submit" class="btn-links">Delete</button>
+					</div>
+				</form>
+			</div>
+		</section>
+	</body>
+{% endblock %}

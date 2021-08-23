@@ -33,6 +33,17 @@
 					<a href="{% url 'room' randROOM  %}" class="btn-links">Go to the Room</a>
 				{% endif %}
 			</div>
+			<div>
+				{% for room in rooms %}
+				<div class="roomcard">
+					<h2>{{room.roomname}}</h2>
+					<a href="{% url 'room' room.rooms %}">{{room.rooms}}</a>
+					<p>{{room.description}}</p>
+					<a href="{% url 'update' room.rndid %}">Update</a>
+					<a href="{% url 'delete' room.rndid %}">Delete</a>
+				</div>
+				{% endfor %}
+			</div>
 		</section>
 	</body>
 {% endblock %}
