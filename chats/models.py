@@ -20,7 +20,7 @@ class Rooms(models.Model):
         return self.roomname
 
     class Meta:
-        ordering = ('datecreated',)
+        ordering = ("datecreated",)
 
 
 class Message(models.Model):
@@ -30,4 +30,4 @@ class Message(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        ordering = ('date_added',)
+        ordering = ("date_added",)

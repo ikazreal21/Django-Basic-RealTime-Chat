@@ -1,18 +1,19 @@
 {% extends 'chats/base.html' %}
 {% load static %}
 {% block title %}
-	AnonRoom || Secure Chat
+AnonRoom || Secure Chat
 {% endblock %}
 {% block content %}
-	<header>
-		<div class="navbar">
-			<a href="{% url 'frontpage' %}"><img src="{% static 'image/new.png' %}" alt="Logo" /></a>
-			<ul class="nav-links">
-				<a href="{% url 'register' %}">Register</a>
-				<a href="{% url 'login' %}">Login</a>
-			</ul>
-		</div>
-	</header>
-	<body>
-	</body>
+<header>
+	<div class="navbar">
+		<a href="{% url 'frontpage' %}"><img src="{% static 'image/new.png' %}" alt="Logo" /></a>
+		<ul class="nav-links">
+			<a href="{% url 'register' %}">Register</a>
+			<a href="{% url 'login' %}">Login</a>
+		</ul>
+	</div>
+</header>
+
+<body>
+</body>
 {% endblock %}
