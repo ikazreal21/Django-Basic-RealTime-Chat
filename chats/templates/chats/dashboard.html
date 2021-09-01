@@ -35,13 +35,13 @@
 			</div>
 			<div>
 				{% for room in rooms %}
-				<div class="roomcard">
-					<h2>{{room.roomname}}</h2>
-					<a href="{% url 'room' room.rooms %}">{{room.rooms}}</a>
-					<p>{{room.description}}</p>
-					<a href="{% url 'update' room.rndid %}">Update</a>
-					<a href="{% url 'delete' room.rndid %}">Delete</a>
-				</div>
+					<div class="roomcard">
+						<h2>{{room.roomname}}</h2>
+						<a href="{% url 'room' room.rooms %}">{{room.rooms}}</a>
+						<p>{{room.description}}</p>
+						<a href="{% url 'update' room.rndid %}">Update</a>
+						<a href="{% url 'delete' room.rndid %}">Delete</a>
+					</div>
 				{% endfor %}
 			</div>
 		</section>
