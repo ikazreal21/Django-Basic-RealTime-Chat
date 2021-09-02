@@ -20,6 +20,8 @@ from .models import *
 
 
 def Fronpage(request):
+    if request.user.is_authenticated:
+        return redirect('index')
     return render(request, 'chats/frontpage.html')
 
 
