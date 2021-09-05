@@ -5,29 +5,27 @@
 {% endblock %}
 {% block content %}
 	<body>
-		<section>
-			<div class="card-wrapper">
-				<div class="card-login">
-					<form action="" method="POST">
-						<h1>Login</h1>
-						{% csrf_token %}
-						<div class="login-input">
-							<div class="username">
-								<label>Username</label>
-								<input type="text" name="username" required />
-							</div>
-							<div class="password">
-								<label>Password</label>
-								<input type="password" name="password" required />
-							</div>
+		<section class="card-wrapper">
+			<div class="login">
+				<form action="" method="post">
+					<h1>Login</h1>
+					{% csrf_token %}
+					<div class="login-input">
+						<div class="username">
+							<label for="Username">Username</label>
+							<input type="text" name="username" required />
 						</div>
-						<button type="submit" class="button">Login</button>
-					</form>
-					{% for i in messages %}
-						<p class="message">{{i}}</p>
-					{% endfor %}
-					<p>Need to Register? Click <a href="{% url 'register' %}">here</a></p>
-				</div>
+						<div class="password">
+							<label for="Username">Password</label>
+							<input type="password" name="password" required />
+						</div>
+					</div>
+					<button type="submit">Login</button>
+				</form>
+				{% for i in messages %}
+					<p class="message">{{i}}</p>
+				{% endfor %}
+				<p class="low">Need to Register? Click <a href="{% url 'register' %}">here</a></p>
 			</div>
 		</section>
 	</body>

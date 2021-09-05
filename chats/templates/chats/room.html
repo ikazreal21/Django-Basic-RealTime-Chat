@@ -1,125 +1,110 @@
-{% extends 'chats/base.html' %}
-{% load static %}
-{% block title %}
-    Room || {{room_name}}
-{% endblock %}
+{% extends 'chats/base.html' %} 
+{% load static %} 
+{% block title %} 
+Room || {{room_name}} 
+{% endblock %} 
 {% block content %}
-  <header>
-    <div class="navbar">
-      <a href="{% url 'index' %}"><img src="{% static 'image/new.png' %}" alt="Logo"/></a>
-      <ul class="nav-links">
-        <a href="{% url 'index' %}">Dashboard</a>
-        <!-- <a href="">Guest</a> -->
-        <a href="{% url 'logout' %}">Logout</a>
-      </ul>
+<header>
+  <div class="navbar">
+    <a href="{% url 'index' %}"
+      ><img src="{% static 'image/new.png' %}" alt="Logo"
+    /></a>
+    <ul class="nav-links">
+      <a href="{% url 'index' %}">Dashboard</a>
+      <a href="{% url 'saveroom' %}">Save Room</a>
+      <a href="{% url 'logout' %}">Logout</a>
+    </ul>
+  </div>
+</header>
+<body>
+  <div class="chat-room">
+    <div class="roomlist">
+      {% for room in rooms %}
+      <a href="{% url 'room' room.rooms %}"
+        ><div class="room">
+          <h4 style="text-transform: uppercase">{{room.roomname}}</h4>
+          <h5>{{room.rooms}}</h5>
+          <a href="{% url 'update' room.rndid %}">Update</a>
+        </div>
+      </a>
+      {% endfor %}
     </div>
-  </header>
-  <body>
-    <section>
-     <div class="dash-card">
-       <!-- <form> -->
-            <div class="form-group">
-              <label for="exampleFormControlTextarea" class="h4 pt-5"><h5>Room Code: <mark>{{room_name}}</mark></h5></label>
-              <!-- <textarea class="form-control" id="chat-text" rows="20" cols="35" disabled></textarea><br> -->
-              <div class="dash-card" id="chat-text" style="max-height: 300px; overflow-y: scroll;">{% for m in messages %}<b>{{ m.username }}</b>: {{ m.content }}<br>{% endfor %}</div>
+    <div class="chat">
+      <label for="">Room Code: {{room_name}} </label>
+      <div class="message-wrapper" id="chat-text">
+        {% for m in messages %} 
+        <b>{{ m.username }}: </b> 
+                {{ m.content }}<br />
+         <!--  {% if m.username != request.user %} -->
+           <!--  <div class="chat-wrapper">
+              <div class="chat-right">
+                <b>{{ m.username }}</b> <br />
+                {{ m.content }}
+              </div>
             </div>
-            <div class="form-group">
-              <input type="text" id="input" placeholder="Message" class="form-control" onkeyup="s()"><br>
+          {% else %}
+          <div class="chat-wrapper">
+            <div class="chat-left">
+              <b>{{ m.username }}</b> <br />
+              {{ m.content }}
             </div>
-            <input class="btn-links" id="submit" type="button" value="Send" disabled/>
-            <!-- <button class="btn-links" id="submit" type="button" value="Send">Test</button> -->
-          <!-- </form> -->
-     </div>
-  </section>
-    <!-- <textarea id="chat-text" cols="80" rows="30"></textarea><br>
-    <input type="text" id="input" size="80"><br>
-    <input id="submit" type="button" value="send"> -->
-
-    <!-- <div id="user-hello"></div> -->
-    {{request.user.username|json_script:"user_name"}}    
-    {{room_name|json_script:"room-name"}}
-    <script>
-
-      function scrollToBottom() {
-          let objDiv = document.getElementById("chat-text");
-          objDiv.scrollTop = objDiv.scrollHeight;
-       }
-
-      scrollToBottom();
-
-
-      const roomName = JSON.parse(document.getElementById('room-name').textContent);
-      const userName = JSON.parse(document.getElementById('user_name').textContent);
-
-
-
-
-      const chatSocket = new WebSocket(
-        'ws://' +
-        window.location.host +
-        '/ws/chat/' +
-        roomName +
-        '/'
-      );
-
-
-      function s(){
-        var i = document.getElementById('input');
-        if(i.value=="")
-            {
-            document.getElementById("submit").disabled=true;
-            }
-        else
-            document.getElementById("submit").disabled=false;
-        }
-
-
-      chatSocket.onmessage = function(e){
-        const data = JSON.parse(e.data);
-        // document.querySelector('#user-hello').innerHTML = (data.tester)
-        if (data.message) {
-          document.querySelector('#chat-text').innerHTML += (data.username + ': ' + data.message + '<br>')
-        } else {
-          alert('This Message is Empty')
-        }
-        scrollToBottom(); 
-      };
-
-
-      document.querySelector('#submit').onclick = function(e) {
-        const messageInputDom = document.querySelector('#input');
-        const message = messageInputDom.value;
-        chatSocket.send(JSON.stringify({
-          'message' : message,
-          'username' : userName,
-          'room' : roomName
-
-        }));
-        messageInputDom.value = '';
-      };
-       
-       input.addEventListener('keyup', function(e){
-        var i = document.getElementById('input');
-        if(i.value=="")
-            {
-          alert('This Message is Empty!')
-        }
-        else{
-        if (e.keyCode === 13) {
-          const messageInputDom = document.querySelector('#input');
-          const message = messageInputDom.value;
-          chatSocket.send(JSON.stringify({
-            'message' : message,
-            'username' : userName,
-            'room' : roomName
-          }));
-          messageInputDom.value = '';
-           }
-        }
-           
-      });
-            
-
-    </script>
-  </body>
+          </div>
+          {% endif %}  -->
+        {% endfor %}
+      </div>
+      <div class="inputs">
+        <input
+          type="text"
+          id="input"
+          placeholder="Message"
+          class="form-control"
+          onkeyup="s()"
+        />
+        <input
+          class="btn-links"
+          id="submit"
+          type="button"
+          value="Send"
+          disabled
+        />
+      </div>
+    </div>
+  </div>
+  <!-- <section>
+    <div class="dash-card">
+      <div class="form-group">
+        <label for="exampleFormControlTextarea" class="h4 pt-5"
+          ><h5>Room Code: <mark>{{room_name}}</mark></h5></label
+        >
+        <div
+          class="dash-card"
+          id="chat-text"
+          style="max-height: 300px; overflow-y: scroll"
+        >
+          {% for m in messages %}<b>{{ m.username }}</b>: {{ m.content }}<br />
+          {% endfor %}
+        </div>
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          id="input"
+          placeholder="Message"
+          class="form-control"
+          onkeyup="s()"
+        /><br />
+      </div>
+      <input
+        class="btn-links"
+        id="submit"
+        type="button"
+        value="Send"
+        disabled
+      />
+    </div>
+  </section> -->
+  {{request.user.username|json_script:"user_name"}}
+  {{room_name|json_script:"room-name"}}
+  <script src="{% static 'js/index.js' %}"></script>
+</body>
 {% endblock %}

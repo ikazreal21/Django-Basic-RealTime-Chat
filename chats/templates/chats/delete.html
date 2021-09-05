@@ -1,23 +1,26 @@
-{% extends 'chats/base.html' %}
-{% load static %}
-{% block title %}
-AnonRoom || Delete
-{% endblock %}
+{% extends 'chats/base.html' %} 
+{% load static %} 
+{% block title %} 
+AnonRoom || Delete 
+{% endblock %} 
 {% block content %}
 
 <body>
-	<section>
-		<div class="dash-card">
-			<form action="" method="POST">
-				{% csrf_token %}
-				<h2>{{room.roomname}}</h2>
-				<h3>{{room.rooms}}</h3>
-				<p>{{room.description}}</p>
-				<div class="btn-flex">
-					<button type="submit" class="btn-links">Delete</button>
-				</div>
-			</form>
-		</div>
-	</section>
+  <section>
+    <div class="update-wrapper">
+      <div class="update-card">
+        <form action="" method="POST">
+          {% csrf_token %}
+          <label>Delete a Room</label>
+          <h2>{{room.roomname}}</h2>
+          <h3>{{room.rooms}}</h3>
+          <div>
+            <button type="submit">Confirm</button>
+            <a href="{% url 'update' randid %}">Cancel</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
 </body>
 {% endblock %}

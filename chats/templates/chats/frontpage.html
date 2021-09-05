@@ -1,19 +1,32 @@
 {% extends 'chats/base.html' %}
 {% load static %}
 {% block title %}
-AnonRoom || Secure Chat
+	AnonRoom || Anonymous Chat Room
 {% endblock %}
 {% block content %}
-<header>
-	<div class="navbar">
-		<a href="{% url 'frontpage' %}"><img src="{% static 'image/new.png' %}" alt="Logo" /></a>
-		<ul class="nav-links">
-			<a href="{% url 'register' %}">Register</a>
-			<a href="{% url 'login' %}">Login</a>
-		</ul>
-	</div>
-</header>
-
-<body>
-</body>
+	<header>
+		<div class="navbar">
+			<a href="{% url 'frontpage' %}"><img src="{% static 'image/new.png' %}" alt="Logo" /></a>
+			<ul class="nav-links">
+				<a href="{% url 'register' %}">Register</a>
+				<a href="{% url 'login' %}">Login</a>
+			</ul>
+		</div>
+	</header>
+	<body>
+		<section>
+			<div class="main">
+				<div class="text-content">
+					<h2>Anonimity is the Key</h2>
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
+						minus et fugiat inventore aliquid soluta eum? Odio aliquid
+						reprehenderit soluta perferendis ipsam, a facilis eaque nesciunt
+						repellendus culpa natus excepturi. <a href="{% url 'register' %}">Register</a>
+					</p>
+				</div>
+				<img src="{% static 'image/anonroombanner.png' %}" alt="banner" />
+			</div>
+		</section>
+	</body>
 {% endblock %}

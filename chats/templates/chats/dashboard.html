@@ -1,49 +1,51 @@
-{% extends 'chats/base.html' %}
-{% load static %}
-{% block title %}
-	AnonRoom || Dashboard
-{% endblock %}
-{% block content %}
-	<header>
-		<div class="navbar">
-			<a href="{% url 'index' %}"><img src="{% static 'image/new.png' %}" alt="Logo" /></a>
-			<ul class="nav-links">
-				<!-- <a href="">Guest</a> -->
-				<a href="{% url 'enterroom' %}">Enter a Room</a>
-				<a href="{% url 'saveroom' %}">Save Room</a>
-				<a href="{% url 'logout' %}">Logout</a>
-			</ul>
-		</div>
-	</header>
-	<body>
-		<section>
-			<div class="dash-card">
-				<form method="post" action="">
-					{% csrf_token %}
-					<label>Generate a Random Room</label>
-					{% if randROOM == None %}
-						<h3></h3>
-					{% else %}
-						<h3>{{randROOM}}</h3>
-					{% endif %}
-					<button type="submit" class="btn-links" name="generate">Generate</button>
-				</form>
-				{% if randROOM == None %}
-				{% else %}
-					<a href="{% url 'room' randROOM  %}" class="btn-links">Go to the Room</a>
-				{% endif %}
-			</div>
-			<div>
-				{% for room in rooms %}
-					<div class="roomcard">
-						<h2>{{room.roomname}}</h2>
-						<a href="{% url 'room' room.rooms %}">{{room.rooms}}</a>
-						<p>{{room.description}}</p>
-						<a href="{% url 'update' room.rndid %}">Update</a>
-						<a href="{% url 'delete' room.rndid %}">Delete</a>
-					</div>
-				{% endfor %}
-			</div>
-		</section>
-	</body>
+{% extends 'chats/base.html' %} {% load static %} {% block title %} AnonRoom ||
+Dashboard {% endblock %} {% block content %}
+<header>
+  <div class="navbar">
+    <a href="{% url 'index' %}"
+      ><img src="{% static 'image/new.png' %}" alt="Logo"
+    /></a>
+    <ul class="nav-links">
+      <a href="{% url 'enterroom' %}">Enter a Room</a>
+      <a href="{% url 'saveroom' %}">Save Room</a>
+      <a href="{% url 'logout' %}">{{request.user}}, Logout</a>
+    </ul>
+  </div>
+</header>
+<body>
+  <section>
+    <div class="dashboard">
+      <div class="roomlist">
+        {% for room in rooms %}
+          <a href="{% url 'room' room.rooms %}"
+            ><div class="room">
+              <h4 style="text-transform: uppercase">{{room.roomname}}</h4>
+              <h5>{{room.rooms}}</h5>
+              <a href="{% url 'update' room.rndid %}">Update</a>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+      <div class="generate">
+        <form method="post" action="">
+          {% csrf_token %}
+          <label>Generate a Random Room</label>
+          {% if randROOM == None %}
+            <h3></h3>
+          {% else %}
+            <h4>{{randROOM}}</h4>
+          {% endif %}
+          <button type="submit" class="btn-links" name="generate">
+          Generate
+          </button>
+        </form>
+        {% if randROOM == None %}
+          <h3></h3>
+        {% else %}
+          <a href="{% url 'room' randROOM  %}">Go to the Room</a>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+</body>
 {% endblock %}
