@@ -84,17 +84,18 @@ WSGI_APPLICATION = 'ChatRoom.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+
+DATABASES = {
+    'default': {'ENGINE': 'django.db.backends.sqlite3', 'NAME': BASE_DIR / 'db.sqlite3'}
+}
+
+
 import dj_database_url
 
 DATABASES['default'] = dj_database_url.parse(
     'postgres://sdlbsezzapwufr:c3a0d444bbdbe16930ed82cd823825dae9c00cf504240a2b8e06a1bdd73a5815@ec2-44-197-94-126.compute-1.amazonaws.com:5432/d1vfusjsfgnreu',
     conn_max_age=600,
 )
-
-
-DATABASES = {
-    'default': {'ENGINE': 'django.db.backends.sqlite3', 'NAME': BASE_DIR / 'db.sqlite3'}
-}
 
 
 # Password validation
