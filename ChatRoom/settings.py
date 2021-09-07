@@ -12,12 +12,13 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
-from dotenv import load_dotenv
+
+# from dotenv import load_dotenv
 
 
-load_dotenv()
+# load_dotenv()
 
-DATABASE_URL = database_url = os.environ.get('DATABASE_URL')
+# DATABASE_URL = database_url = os.environ.get('DATABASE_URL')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -85,7 +86,10 @@ WSGI_APPLICATION = 'ChatRoom.wsgi.application'
 
 import dj_database_url
 
-DATABASES['default'] = dj_database_url.parse(DATABASE_URL, conn_max_age=600)
+DATABASES['default'] = dj_database_url.parse(
+    'postgres://sdlbsezzapwufr:c3a0d444bbdbe16930ed82cd823825dae9c00cf504240a2b8e06a1bdd73a5815@ec2-44-197-94-126.compute-1.amazonaws.com:5432/d1vfusjsfgnreu',
+    conn_max_age=600,
+)
 
 
 DATABASES = {
@@ -129,7 +133,7 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "staticfiles")]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 
 # Default primary key field type
