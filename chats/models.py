@@ -9,7 +9,7 @@ import uuid
 class Rooms(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     roomname = models.CharField(max_length=255)
-    rooms = models.CharField(max_length=255, unique=True)
+    rooms = models.CharField(max_length=255)
     description = models.TextField(blank=True)
     datecreated = models.DateTimeField(auto_now_add=True)
     rndid = models.CharField(
