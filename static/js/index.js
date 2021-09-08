@@ -46,7 +46,7 @@ document.querySelector("#submit").onclick = function (e) {
 
 input.addEventListener("keyup", function (e) {
   var i = document.getElementById("input");
-  if (i.value == "") {
+  if (i.value == "" && e.keyCode === 13) {
     alert("This Message is Empty!");
   } else {
     if (e.keyCode === 13) {
