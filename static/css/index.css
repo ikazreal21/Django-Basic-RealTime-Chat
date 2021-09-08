@@ -488,6 +488,7 @@ textarea,
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  justify-content:space-around;
 }
 
 .chat-room input {
@@ -643,7 +644,8 @@ a:hover {
 
 
 @media screen and (max-width: 500px) {
-  .text-content {
+  .text-content,
+  .navbar p {
     display: none;
   }
   .main img {
@@ -700,6 +702,7 @@ a:hover {
   .message-wrapper {
     width: 300px;
   }
+
   .chat input[type="button"] {
     margin: 1rem;
     width: 100px;
