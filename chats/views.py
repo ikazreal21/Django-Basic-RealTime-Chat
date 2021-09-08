@@ -64,7 +64,7 @@ def Room(request, room_name):
     rooms = Rooms.objects.filter(user=request.user)
 
     username = request.user
-    messages = Message.objects.filter(room=room_name)[0:25]
+    messages = Message.objects.filter(room=room_name)[0:-1]
     return render(
         request,
         'chats/room.html',
