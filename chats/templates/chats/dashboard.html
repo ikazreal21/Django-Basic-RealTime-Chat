@@ -8,7 +8,7 @@ Dashboard {% endblock %} {% block content %}
     <ul class="nav-links">
       <a href="{% url 'enterroom' %}">Enter a Room</a>
       <a href="{% url 'saveroom' %}">Save Room</a>
-      <a href="{% url 'logout' %}"><p>{{request.user}},</p> Logout</a>
+      <a href="{% url 'logout' %}">{{request.user}}, Logout</a>
     </ul>
   </div>
 </header>
