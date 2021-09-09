@@ -12,7 +12,7 @@ urlpatterns = [
     path("updateroom/<str:pk>", views.UpdateRoom, name='update'),
     path("deleteroom/<str:pk>", views.DeleteRoom, name='delete'),
     # AUTH
-    path('login', views.Login, name='login'),
+    path('login/', views.Login, name='login'),
     path('register', views.Register, name='register'),
     path('logout/', views.logoutPage, name='logout'),
 ]

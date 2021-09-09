@@ -90,8 +90,6 @@ def Login(request):
                 return redirect('index')
             else:
                 messages.info(request, "Username or Password is Incorrect")
-
-    context = {}
     return render(request, 'chats/login.html')
 
 
