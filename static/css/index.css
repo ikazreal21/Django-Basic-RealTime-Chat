@@ -619,6 +619,11 @@ a:hover {
   margin-top: 1rem;
 }
 
+#input:invalid + input[type="button"] {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;

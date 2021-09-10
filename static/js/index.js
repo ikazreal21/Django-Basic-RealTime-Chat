@@ -12,12 +12,12 @@ const chatSocket = new WebSocket(
   "ws://" + window.location.host + "/ws/chat/" + roomName + "/"
 );
 
-function s() {
-  var i = document.getElementById("input");
-  if (i.value == "") {
-    document.getElementById("submit").disabled = true;
-  } else document.getElementById("submit").disabled = false;
-}
+// function s() {
+//   var i = document.getElementById("input");
+//   if (i.value == "") {
+//     document.getElementById("submit").disabled = true;
+//   } else document.getElementById("submit").disabled = false;
+// }
 
 chatSocket.onmessage = function (e) {
   const data = JSON.parse(e.data);
